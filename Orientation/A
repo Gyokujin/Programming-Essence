@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int nDataA = 10;
+    int nDataB = nDataA; // int형 변수 nDataB를 선언(이때 메모리 주소를 갖는다)하고 nDataB의 값으로 nDataB의 값을 대입한다(복사하여 부여한다).
+
+    cout << nDataA << endl; // 10
+    cout << &nDataA << endl;
+    
+    cout << nDataB << endl; // 10
+    cout << &nDataB << endl;
+
+    nDataB = nDataA++; // A : 11, B : 10 (A에 후위 연산을 하고 대입하는 상황에서는 아직 A의 값은 10이다. 이 10을 B에 대입(변화는 없다). 이후에 A의 값에 1을 더한다.)
+    cout << nDataA << endl; // 11
+    cout << &nDataA << endl;
+
+    cout << nDataB << endl; // 10
+    cout << &nDataB << endl;
+
+    nDataB = --nDataA;  // A : 10, B : 10 (A에 전위 연산을 하고 대입 하는데 1. A의 값을 전위 연산(이때 1을 뺀다) 2. A의 값을 B에 대입한다.)
+    cout << nDataA << endl; // 10
+    cout << &nDataA << endl;
+
+    cout << nDataB << endl; // 10
+    cout << &nDataB << endl;
+}
