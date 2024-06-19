@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+// 데이터 2개를 저장하고 저장된 데이터를 각각 값/포인터/참조를 이용하여 함수를, 이용하여 두 값을 교환해보고 변수의 값과 주소 값을 출력한다. 
+// 1. 값에 의한 호출 함수 : 두 매개변수를 받아 매개변수의 값을 교환한다.
+int numA, numB;
+
+void Swap1(int num1, int num2) // 전역변수를 활용한 교체
+{
+	numA = num2;
+	numB = num1;
+
+	cout << numA << " : " << &numA << endl; // 전역변수1로 메모리 주소는 같다
+	cout << numB << " : " << &numB << endl; // 전역변수2로 메모리 주소는 같다
+}
+
+void Swap2(int num1, int num2) // 두 매개변수를 받고 지역변수로 교체
+{
+	int temp = num1; // 임시로 지정한 변수에 값을 저장한다.
+	num1 = num2;
+	num2 = temp;
+
+	cout << num1 << " : " << &num1 << endl; // 매개변수1
+	cout << num2 << " : " << &num2 << endl; // 매개변수2
+}
+
+
+int main()
+{
+	cin >> numA >> numB;
+	cout << numA << " : " << &numA << endl; // 전역변수1
+	cout << numB << " : " << &numB << endl; // 전역변수2
+
+	Swap1(numA, numB); // 값에 의한 호출 함수 1
+	// Swap2(numA, numB); // 값에 의한 호출 함수 2
+}
