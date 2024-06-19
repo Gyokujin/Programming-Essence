@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+// 3. 참조에 의한 호출 함수 : 두 매개변수를 참조자를 이용하고, 받아 매개변수의 값을 교환한다. 위 각각의 함수에 각 매개변수의 주소값을 출력한다.
+void Swap5(int &num1, int &num2) // 참조 : 함수 호출시 전달된 인자의 메모리 주소를 참조한다. 즉 main의 numA와 numB를 의미
+{
+	int temp = num1;
+	num1 = num2;
+	num2 = temp;
+} // 이 방법이 Call by Reference
+
+int main()
+{
+	int numA, numB;
+	cin >> numA >> numB;
+
+	cout << numA << " : " << &numA << endl;
+	cout << numB << " : " << &numB << endl;
+
+	Swap5(numA, numB); // 참조에 의한 호출 함수
+
+	cout << numA << " : " << &numA << endl;
+	cout << numB << " : " << &numB << endl;
+}
