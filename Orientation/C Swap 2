@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+// 2. 포인터에 의한 호출 함수 : 두 매개변수를 포인터를 이용하고, 받은 참조된 변수의 값을 교환한다.
+void Swap3(int* num1, int* num2)
+{
+	cout << *num1 << " : " << num1 << endl; // 포인터를 전달했기 때문에 함수를 선언했을때 인자값의 주소와 매개변수의 주소는 서로 같다.
+	cout << *num2 << " : " << num2 << endl;
+
+	int* temp = num1; // 임시로 만든 포인터 변수에 num1의 포인터를 전달한다.
+	num1 = num2; // num1의 메모리 주소를 num2의 메모리 주소로 바꾼다. (이때 num1과 num2는 같은 주소를 갖고있다)
+	num2 = temp; // num2의 메모리 주소를 temp(num1)로 바꾼다.
+
+	cout << *num1 << " : " << num1 << endl;
+	cout << *num2 << " : " << num2 << endl;
+}
+
+void Swap4(int* num1, int* num2) // 포인터만 받아서 해당 해당 주소의 값을 서로 바꾼다. 이 방법을 사용하면 main 내부의 지역변수라도 값을 교체 할 수 있다.(은닉성)
+{
+	int temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+}
+
+int main()
+{
+	int numA, numB;
+	cin >> numA >> numB;
+
+	cout << numA << " : " << &numA << endl;
+	cout << numB << " : " << &numB << endl;
+
+	// Swap3(&numA, &numB); // 포인터에 의한 호출 함수 1
+	Swap4(&numA, &numB); // 포인터에 의한 호출 함수 2
+
+	cout << numA << " : " << &numA << endl;
+	cout << numB << " : " << &numB << endl;
+}
