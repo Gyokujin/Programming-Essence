@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+// 초기 클래스 정의
+class Values
+{
+public:
+    int num1, num2;
+
+    Values(int num1, int num2)
+    {
+        this->num1 = num1;
+        this->num2 = num2;
+    }
+};
+
+int main()
+{
+    // 객체 A 생성
+    Values A(10, 20);
+    cout << "A: " << A.num1 << ", " << A.num2 << endl;
+
+    class Values // 클래스 확장
+    {
+    public:
+        int num1, num2;
+        int num3;  // 새로운 멤버 변수 추가
+
+        Values(int num1, int num2) {
+            this->num1 = num1;
+            this->num2 = num2;
+            this->num3 = 0;  // 새로운 멤버 변수 초기화
+        }
+
+        void PrintValue() // 재정의로 새롭게 추가한 함수
+        {
+            cout << num1 << " " << num2 << " " << num3 << endl;
+        }
+    };
+
+    // 새로운 객체 B 생성
+    Values B(30, 40);
+    cout << "B: " << B.num1 << ", " << B.num2 << ", " << B.num3 << endl;
+
+    // 객체 A의 값 확인
+    cout << "A: " << A.num1 << ", " << A.num2 << endl;
+
+    // A.PrintValue(); 이전에 선언한 A 객체라서 해당 함수를 사용할 수 없다.
+    B.PrintValue();
+    return 0;
+}
