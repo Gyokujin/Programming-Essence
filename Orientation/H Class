@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class Values
+{
+public:
+	int num1, num2;
+
+	Values(int num1, int num2) // 생성자로 초기화
+	{
+		this->num1 = num1;
+		this->num2 = num2;
+		this->num3 = 0;
+		this->num4 = 0;
+	}
+
+	void ShowValues()
+	{
+		cout << num1 << " " << num2 << " " << num3 << " " << num4 << endl;
+	}
+
+	void ModifyValue(Values point)
+	{
+		this->num1 += 5;
+		this->num2 += 5;
+		this->num3 += 5;
+		this->num4 += 5;
+	}
+
+private:
+	int num3, num4;
+};
+
+int main()
+{
+	int input1, input2;
+	cin >> input1 >> input2;
+
+	Values values(input1, input2);
+	values.ShowValues();
+
+	values.ModifyValue(values);
+	values.ShowValues();
+
+	Values values2(5, 5);
+	
+	values.ShowValues();
+	values2.ShowValues();
+}
