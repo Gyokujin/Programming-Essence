@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+struct Values
+{
+public:
+	Values(int num1, int num2) // 생성자로 초기화
+	{
+		this->num1 = num1;
+		this->num2 = num2;
+
+		this->num3 = 0;
+		this->num4 = 0;
+	}
+
+	int num1, num2;
+
+private:
+	int num3, num4;
+};
+
+int main()
+{
+	int inputA, inputB;
+	cin >> inputA >> inputB;
+
+	Values values1(inputA, inputB); // 이 선언과 동시에 해당 구조체가 복사가 된다.
+	cout << values1.num1 << " : " << &values1.num1 << endl;
+	cout << values1.num2 << " : " << &values1.num2 << endl;
+
+	cin >> inputA >> inputB;
+	Values values2(inputA, inputB); // values1과 values2는 Values에서 복사된 별도의 데이터라서 서로 다른 값을 가지고 있다.
+	cout << values2.num1 << " : " << &values2.num1 << endl;
+	cout << values2.num2 << " : " << &values2.num2 << endl;
+
+	cout << &values1 << endl; // 이 주소는 values2와 다르다. 서로 참조로 구조체를 복사하였기 때문에(독립적인 객체)
+	cout << &values1 << endl;
+}
