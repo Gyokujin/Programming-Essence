@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class Values
+{
+public:
+	Values(int num1, int num2) // 생성자로 초기화
+	{
+		this->num1 = num1;
+		this->num2 = num2;
+
+		this->num3 = 0;
+		this->num4 = 0;
+	}
+
+	int num1, num2;
+
+private:
+	int num3, num4;
+};
+
+int main()
+{
+	int inputA, inputB;
+	cin >> inputA >> inputB;
+
+	Values values1(inputA, inputB); // values1 객체를 생성 => values1는 Values 클래스에 참조된다.
+	cout << values1.num1 << " : " << &values1.num1 << endl;
+	cout << values1.num2 << " : " << &values1.num2 << endl;
+
+	cin >> inputA >> inputB;
+	Values values2(inputA, inputB);
+	cout << values2.num1 << " : " << &values2.num1 << endl;
+	cout << values2.num2 << " : " << &values2.num2 << endl;
+}
