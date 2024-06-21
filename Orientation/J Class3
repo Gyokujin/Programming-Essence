@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+// 포인터를 활용하여 클래스 내부의 값을 바꾸는거 시도
+class Warrior
+{
+private:
+	int atk, def, speed;
+
+public:
+	Warrior(int atk, int def, int speed)
+	{
+		this->atk = atk;
+		this->def = def;
+		this->speed = speed;
+	}
+
+	void ShowStatus()
+	{
+		cout << "공격력 : " << atk << endl;
+		cout << "방어력 : " << def << endl;
+		cout << "이동속도 : " << speed << endl;
+	}
+
+	void SetStatus1(int atk, int def, int speed)
+	{
+		this->atk = atk;
+		this->def = def;
+		this->speed = speed;
+	}
+};
+
+int main()
+{
+	int input1, input2, input3;
+
+	// warrior1 객체 생성
+	cin >> input1 >> input2 >> input3;
+	Warrior warrior1(input1, input2, input3);
+
+	// warrior2 객체 생성
+	cin >> input1 >> input2 >> input3;
+	Warrior warrior2(input1, input2, input3);
+
+	// warrior1 객체의 데이터 업데이트
+	Warrior* warriorPointer = &warrior1;
+	warriorPointer->SetStatus1(input1, input2, input3);
+
+	// 각 객체의 상태 출력
+	cout << "warrior1 상태:" << endl;
+	warrior1.ShowStatus();
+
+	cout << "warrior2 상태:" << endl;
+	warrior2.ShowStatus();
+}
