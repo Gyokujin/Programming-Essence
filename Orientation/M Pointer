@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+struct Student
+{
+public:
+	char name[12];
+	int kor, math, sum, total;
+
+	void ShowInfo()
+	{
+		cout << "이름 : " << name << endl;
+		cout << "국어 : " << kor << endl;
+		cout << "수학 : " << math << endl;
+
+		sum = kor + math;
+		cout << "총점 : " << sum << endl << endl;
+	}
+};
+
+int main()
+{
+	Student students[3] = { { "홍길동", 90, 85 }, { "이순신", 88, 91 }, { "아무개", 80, 75 } };
+	students[0].ShowInfo();
+	students[1].ShowInfo();
+
+	Student* point = students; // 배열은 그 자체로 주소를 의미하기 때문에 가능하다.
+	(point + 2)->ShowInfo(); // 배열에서 포인터 선언을 하였을때 해당 포인터는 첫번째 인덱스를 의미한다. +2를 하면 세번째 인덱스에 접근된다.
+}
