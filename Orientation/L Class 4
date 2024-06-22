@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+private:
+	string name;
+	int str;
+	int iq;
+
+public:
+	Person(string name, int str, int iq)
+	{
+		this->name = name;
+		this->str = str;
+		this->iq = iq;
+	}
+
+	Person()
+	{
+		name = "JACE";
+		str = 30;
+		iq = 10;
+	}
+
+	void ShowInfo()
+	{
+		cout << "이름 : " << name << endl;
+		cout << "힘 : " << str << endl;
+		cout << "지능 : " << iq << endl << endl;
+	}
+
+	void LevelUp()
+	{
+		str += 5;
+		iq += 3;
+	}
+};
+
+int main()
+{
+	Person person1;
+	person1.ShowInfo();
+
+	person1.LevelUp();
+	person1.ShowInfo();
+
+	Person person2("Luke", 20, 25);
+	person2.ShowInfo();
+}
