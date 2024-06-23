@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+class Door
+{
+public:
+	virtual ~Door() {}
+
+	void OpenDoor()
+	{
+		cout << "Basic door Opened" << endl;
+	}
+
+	void CloseDoor()
+	{
+		cout << "Basic door Closed" << endl;
+	}
+};
+
+class House
+{
+private:
+	string roof = "House roof";
+	string wall = "House wall";
+
+public:
+	Door door;
+
+	void SetDoor(Door door) 
+	{
+		this->door = door;
+	}
+
+	Door GetDoor()
+	{
+		return door;
+	}
+
+	virtual void OpenDoor()
+	{
+		door.OpenDoor();
+	}
+
+	virtual void CloseDoor()
+	{
+		door.CloseDoor();
+	}
+};
+
+
+class BasicHouse : public House
+{
+
+};
+
+class MyHouse : public House
+{
+public:
+	void OpenDoor() override
+	{
+		cout << "My door Opened" << endl;
+	}
+
+	void CloseDoor() override
+	{
+		cout << "My door Closed" << endl;
+	}
+};
+
+int main()
+{
+	BasicHouse basicHouse;
+	basicHouse.OpenDoor();
+	basicHouse.CloseDoor();
+
+	MyHouse myHouse;
+	myHouse.OpenDoor();
+	myHouse.CloseDoor();
+}
