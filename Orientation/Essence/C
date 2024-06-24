@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+int num = 10; // 전역변수 : 함수 바깥에서 선언한 변수로 다른 함수에서 접근 가능하다
+
+int Sum(int param1, int param2) // 함수
+{
+    int result = param1 + param2;
+    return result;
+}
+
+void Increase() // 반환값이 없을때는 void
+{
+    num++;
+    int result = 0; // 지역 변수 : 해당 함수 내에서만 접근 가능하다
+
+    cout << num << endl;
+}
+
+float Abs(float f)
+{
+    if (f < 0.0f)
+        return -f;
+    else
+        return f;
+}
+
+bool Equal(float f1, float f2, float epsilon)
+{
+    return Abs(f1 - f2) <= epsilon;
+}
+
+int main()
+{
+    // bool (1byte) : 참(1)과 거짓(0)만을 저장한다
+    bool b = true;
+
+    int var = 10;
+    b = var == 10; // 다음처럼 표현 가능하다. var 값이 10일경우 b는 true가 된다.
+
+    if (b)
+        cout << "var == 10" << endl;
+    else
+        cout << "var != 10" << endl;
+
+    // char (1byte) : 문자(한글자)를 저장한다. -128 ~ 127
+    char c = 65; // A는 65와 같다(아스키 코드로 인해 숫자를 문자로 표현한 형태이다)
+    cout << c << endl;
+
+    // float : 실수를 저장한다
+    float f = 3.14f;
+
+    // double : float보다 더 정밀하고 범위가 넓은 실수
+    double dF = 2.71;
+
+    unsigned char uC = 255; // unsigned : 부호를 표현하지 않는다. 기존의 자료형에서 더 넓은 범위로 표현 가능하다.(가장 앞자리는 부호였기 때문)
+    cout << (int)uC << endl;
+
+    const char uC2 = 127; // const : 상수로 선언과 동시에 초기화를 해야하며 이후 값 변경은 불가능하다.
+    cout << (int)uC2 << endl;
+
+    int var2 = Sum(15, 20);
+    cout << "두 수의 합은 " << var2 << endl;
+
+    Increase();
+
+    if (Equal(3.0f, 1.0f + 2.0f, 0.00001f))
+        cout << "same" << endl;
+
+    return 0;
+}
