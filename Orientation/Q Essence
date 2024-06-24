@@ -1,0 +1,44 @@
+#include <iostream>
+
+int main()
+{
+	int var0 = 12;
+	int var1 = 10;
+	int var2 = 5;
+
+	std::cout << "Hello World!" << std::endl;
+
+	// 변수와 사칙연산
+	var0 = var1 + var2;
+	std::cout << "두 수 " << var1 << "과 " << var2 << "의 합은 " << var0 << std::endl;
+
+	var0 = var1 - var2;
+	std::cout << "두 수 " << var1 << "과 " << var2 << "의 차는 " << var0 << std::endl;
+
+	var0 = var1 * var2;
+	std::cout << "두 수 " << var1 << "과 " << var2 << "의 곱은 " << var0 << std::endl;
+
+	var0 = var1 / var2;
+	std::cout << "두 수 " << var1 << "를 " << var2 << "로 나눈 몫은 " << var0 << std::endl;
+
+	var0 = var1 % var2;
+	std::cout << "두 수 " << var1 << "를 " << var2 << "로 나눈 나머지는 " << var0 << std::endl;
+
+	var2 = 10;
+
+	// 제어문
+	if (var1 < var2)
+	{
+		std::cout << "first" << std::endl;
+	}
+	else if (var1 == var2)
+	{
+		std::cout << "same" << std::endl;
+	}
+	else
+	{
+		std::cout << "second" << std::endl;
+	}
+
+	return 0;
+}
