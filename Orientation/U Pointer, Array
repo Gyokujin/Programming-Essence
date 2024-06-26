@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void Print(int* arr)
+{
+	for (int i = 0; i < 6; i++)
+	{
+		cout << *(arr + i) << " : " << arr + i << endl;
+	}
+}
+
+int main()
+{
+	int arr[6] = { 0,1,2,3,4,5 };
+	int* ptr = arr;
+
+	cout << *ptr << " : " << ptr << endl;
+	cout << *(++ptr) << " : " << ptr << endl; // 포인터는 해당 자료형의 크기만큼 연산해준다. int는 4바이트이기 때문에 +4가 된다.
+
+	ptr = arr;
+	Print(arr);
+}
