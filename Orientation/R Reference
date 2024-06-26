@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int num = 10;
+	int& ref = num; // 참조 : 초기화로 변수를 할당하여 이후에는 변경이 불가능하다.
+
+	cout << ref << endl;
+	
+	num = 15;
+	cout << ref << endl; // 가리키는 포인터의 개념으로 참조하는 값이 변경되면 같이 변경된다
+
+	ref = 5;
+	cout << num << endl; // 반대의 경우도 가능하다
+
+	return 0;
+}
